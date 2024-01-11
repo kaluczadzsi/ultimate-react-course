@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import Item from './Item';
 
-const PackingList = ({ list }) => {
+const PackingList = ({ items }) => {
   return (
     <div className="list">
       <ul>
-        {list.map((item) => (
+        {items.map((item) => (
           <Item key={item.id} item={item} />
         ))}
       </ul>

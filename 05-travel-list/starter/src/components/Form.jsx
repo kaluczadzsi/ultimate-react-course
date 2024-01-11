@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 
-const Form = () => {
+const Form = ({ onAddItems }) => {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState('');
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
 
     if (!description) return;
@@ -16,9 +17,11 @@ const Form = () => {
       packed: false,
     };
 
+    onAddItems(newItem);
+
     setDescription('');
     setQuantity(1);
-  };
+  }
 
   return (
     <form className="add-form" onSubmit={handleSubmit}>
