@@ -7,6 +7,16 @@ import { useState } from 'react';
 const App = () => {
   const [items, setItems] = useState([]);
 
+  function handleClearList() {
+    const confirmed = window.confirm(
+      'Are you sure you want to delete all items?'
+    );
+
+    if (confirmed) {
+      setItems([]);
+    }
+  }
+
   function handleAddItems(item) {
     setItems((items) => [...items, item]);
   }
@@ -31,6 +41,7 @@ const App = () => {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
       <Stats items={items} />
     </div>
