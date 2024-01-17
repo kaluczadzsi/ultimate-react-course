@@ -4,6 +4,7 @@ const App = () => {
     <div className="app">
       <div className="sidebar">
         <FriendsList />
+        <FormAndFriend />
       </div>
     </div>
   );
@@ -60,7 +61,25 @@ function Friend({ friend }) {
         </p>
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
-      <button className="button">Select</button>
+      <Button>Select</Button>
     </li>
+  );
+}
+
+function Button({ children }) {
+  return <button className="button">{children}</button>;
+}
+
+function FormAndFriend() {
+  return (
+    <form className="form-add-friend">
+      <label htmlFor="name">Friend name</label>
+      <input type="text" id="name" />
+
+      <label htmlFor="url">Image URL</label>
+      <input type="text" id="url" />
+
+      <Button>Add</Button>
+    </form>
   );
 }
