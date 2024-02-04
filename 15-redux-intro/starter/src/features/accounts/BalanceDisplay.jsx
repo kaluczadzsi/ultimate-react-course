@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { connect } from 'react-redux';
 
 function formatCurrency(value) {
